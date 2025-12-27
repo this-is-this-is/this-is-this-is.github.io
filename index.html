@@ -4,93 +4,284 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Geon Lee - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      :root {
+        --primary-color: #3498db;
+        --text-dark: #2c3e50;
+        --text-light: #546e7a;
+        --bg-gray: #f4f7f6;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: "Segoe UI", sans-serif;
-        margin: 40px;
-        background-color: #f9f9f9;
+        font-family: 'Inter', "Segoe UI", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 40px 20px;
+        background-color: var(--bg-gray);
         color: #333;
       }
-      h1,
-      h2 {
-        color: #2c3e50;
+
+      /* 전체 컨테이너 */
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+        background: var(--white);
+        padding: 60px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        border-radius: 8px;
       }
-      .section {
-        margin-top: 40px;
-        margin-bottom: 30px;
+
+      /* 헤더 영역 */
+      header {
+        border-bottom: 2px solid var(--bg-gray);
+        padding-bottom: 30px;
+        margin-bottom: 40px;
       }
-      .section-title {
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 12px;
-        border-left: 5px solid #3498db;
-        padding-left: 10px;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin: 0 0 15px 0;
+        letter-spacing: -0.5px;
       }
-      ul {
-        padding-left: 20px;
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        color: var(--text-light);
       }
-      a.button {
-        display: inline-block;
-        padding: 10px 15px;
-        background-color: #3498db;
-        color: white;
+
+      .contact-info p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .contact-info i {
+        margin-right: 8px;
+        color: var(--primary-color);
+      }
+
+      .contact-info a {
+        color: var(--text-light);
         text-decoration: none;
-        border-radius: 5px;
-        margin-top: 20px;
+        transition: color 0.2s;
       }
-      a.button:hover {
-        background-color: #2980b9;
+
+      .contact-info a:hover {
+        color: var(--primary-color);
+      }
+
+      /* 섹션 공통 스타일 */
+      .section {
+        margin-bottom: 45px;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+      }
+
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+        margin-left: 20px;
+      }
+
+      /* 리스트 및 상세 내용 스타일 */
+      .entry {
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .entry-content {
+        flex: 1;
+      }
+
+      .entry-date {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        font-weight: 500;
+        margin-left: 20px;
+        white-space: nowrap;
+      }
+
+      p {
+        margin: 5px 0;
+      }
+
+      ul {
+        padding-left: 18px;
+        margin: 10px 0;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      strong {
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      /* 스킬 태그 스타일 */
+      .skills-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skills-list li {
+        background: #eef2f7;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        margin: 0;
+      }
+
+      /* 반응형 조절 */
+      @media (max-width: 600px) {
+        .container { padding: 30px 20px; }
+        .entry { flex-direction: column; }
+        .entry-date { margin-left: 0; margin-top: 5px; }
+        h1 { font-size: 2rem; }
       }
     </style>
   </head>
   <body>
-    <h1>Geon Lee</h1>
-    <p>Email: <a href="mailto:dlrjs529@gmail.com">dlrjs529@gmail.com</a></p>
-    <p>Phone: +82-10-2195-2846</p>
-    <div class="section">
-      <div class="section-title">Education</div>
-      <p><strong>Sejong University</strong>, Seoul, Korea</p>
-      <p>B.S. Student, Department of Software (Mar. 2020 ~ Present)</p>
-      <p>GPA: 4.17 / 4.5</p>
-    </div>
-    
-    <div class="section">
-      <div class="section-title">Research Experience</div>
-      <p><strong>Hanyang Universty</strong>  Computer Vision Lab Research Intern (Jan. 2026 ~ Present)</p>
-      <p><strong>Gwangju Institute of Science and Technology(GIST)</strong> ACSL Lab Study Intern (Sep. 2025 ~ Dec. 2025)</p>
-      <p><strong>University of Southern California</strong> 2025 SW Pioneer Program at USC (Jul. 2025 ~ Aug. 2025)</p>
-    </div>
+    <div class="container">
+      <header>
+        <h1>Geon Lee</h1>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i>Email: <a href="mailto:dlrjs529@gmail.com">dlrjs529@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i>Phone: +82-10-2195-2846</p>
+        </div>
+      </header>
 
-    <div class="section">
-      <div class="section-title">Awards</div>
-      <ul>
-        <li><strong>3rd Place</strong>, Coding Competition, Sejong University (Dec. 2025)</li>
-        <li><strong>3rd Place</strong>, IMSC Hackathon, University Of Southern California (Jul. 2025)</li>
-        <li><strong>Excellence Prize</strong>, Capstone Design Competition, Sejong University (Jun. 2025)</li>
-        <li><strong>Gold Prize</strong>, AI Challenge, Sejong University (Jun. 2025)</li>
-        <li><strong>Encouragement Prize</strong>, AI Challenge, Sejong University (Dec. 2024)</li>
-        <li><strong>Encouragement Prize</strong>, Software Academic Conference, Sejong University (Dec. 2024)</li>
-        <li><strong>4th Place</strong>, Coding Competition, Sejong University (Dec. 2024)</li>
-        <li><strong>Highest GPA Award</strong>, Sejong University (Feb. 2023)</li>
-        <li><strong>Excellence Prize</strong>, Coding Competition, Sejong University (Sep. 2022)</li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <div class="section-title">Skills</div>
-      <ul>
-        <li>Languages: Python, C, C++</li>
-        <li>Framework: PyTorch, Tensorflow</li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <div class="section-title">Certificates</div>
-      <ul>
-        <li>SQLD</li>
-        <li>ADsP</li>
-      </ul>
+      <div class="section">
+        <div class="section-title">Education</div>
+        <div class="entry">
+          <div class="entry-content">
+            <p><strong>Sejong University</strong>, Seoul, Korea</p>
+            <p>B.S. Student, Department of Software</p>
+            <p>GPA: 4.17 / 4.5</p>
+          </div>
+          <div class="entry-date">Mar. 2020 ~ Present</div>
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">Research Experience</div>
+        <div class="entry">
+          <div class="entry-content"><strong>Hanyang University</strong> Computer Vision Lab Research Intern</div>
+          <div class="entry-date">Jan. 2026 ~ Present</div>
+        </div>
+        <div class="entry">
+          <div class="entry-content"><strong>Gwangju Institute of Science and Technology(GIST)</strong> ACSL Lab Study Intern</div>
+          <div class="entry-date">Sep. 2025 ~ Dec. 2025</div>
+        </div>
+        <div class="entry">
+          <div class="entry-content"><strong>University of Southern California</strong> 2025 SW Pioneer Program at USC</div>
+          <div class="entry-date">Jul. 2025 ~ Aug. 2025</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Awards</div>
+        <ul>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>3rd Place</strong>, Coding Competition, Sejong University</span>
+              <span class="entry-date">Dec. 2025</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>3rd Place</strong>, IMSC Hackathon, University Of Southern California</span>
+              <span class="entry-date">Jul. 2025</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>Excellence Prize</strong>, Capstone Design Competition, Sejong University</span>
+              <span class="entry-date">Jun. 2025</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>Gold Prize</strong>, AI Challenge, Sejong University</span>
+              <span class="entry-date">Jun. 2025</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>Encouragement Prize</strong>, AI Challenge, Sejong University</span>
+              <span class="entry-date">Dec. 2024</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>Encouragement Prize</strong>, Software Academic Conference, Sejong University</span>
+              <span class="entry-date">Dec. 2024</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>4th Place</strong>, Coding Competition, Sejong University</span>
+              <span class="entry-date">Dec. 2024</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>Highest GPA Award</strong>, Sejong University</span>
+              <span class="entry-date">Feb. 2023</span>
+            </div>
+          </div>
+          <div class="entry" style="display: list-item; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>Excellence Prize</strong>, Coding Competition, Sejong University</span>
+              <span class="entry-date">Sep. 2022</span>
+            </div>
+          </div>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">Skills</div>
+        <ul class="skills-list">
+          <li><strong>Languages:</strong> Python, C, C++</li>
+          <li><strong>Framework:</strong> PyTorch, Tensorflow</li>
+        </ul>
+      </div>
+      
+      <div class="section" style="margin-bottom: 0;">
+        <div class="section-title">Certificates</div>
+        <ul class="skills-list">
+          <li>SQLD</li>
+          <li>ADsP</li>
+        </ul>
+      </div>
     </div>
   </body>
-</html>
+</html> 
