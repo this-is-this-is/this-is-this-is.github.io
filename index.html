@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Geon Lee - CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
       :root {
@@ -13,11 +13,10 @@
         --text-light: #546e7a;
         --bg-gray: #f4f7f6;
         --white: #ffffff;
+        --border-color: #e1e4e8;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       body {
         font-family: 'Inter', "Segoe UI", sans-serif;
@@ -28,29 +27,43 @@
         color: #333;
       }
 
-      /* 전체 컨테이너 */
       .container {
         max-width: 850px;
         margin: 0 auto;
         background: var(--white);
         padding: 60px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        border-radius: 8px;
+        border-radius: 12px;
       }
 
-      /* 헤더 영역 */
       header {
         border-bottom: 2px solid var(--bg-gray);
         padding-bottom: 30px;
         margin-bottom: 40px;
       }
 
+      .profile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .profile-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 25px;
+        border: 3px solid var(--bg-gray);
+      }
+
       h1 {
         font-size: 2.5rem;
         font-weight: 700;
         color: var(--text-dark);
-        margin: 0 0 15px 0;
+        margin: 0;
         letter-spacing: -0.5px;
+        line-height: 1.2;
       }
 
       .contact-info {
@@ -58,38 +71,20 @@
         flex-wrap: wrap;
         gap: 20px;
         color: var(--text-light);
+        padding-left: 5px;
       }
 
-      .contact-info p {
-        margin: 0;
-        font-size: 0.95rem;
-      }
+      .contact-info p { margin: 0; font-size: 0.95rem; display: flex; align-items: center; }
+      .contact-info i { margin-right: 8px; color: var(--primary-color); font-size: 1.1rem; }
+      .contact-info a { color: var(--text-light); text-decoration: none; }
 
-      .contact-info i {
-        margin-right: 8px;
-        color: var(--primary-color);
-      }
-
-      .contact-info a {
-        color: var(--text-light);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-
-      .contact-info a:hover {
-        color: var(--primary-color);
-      }
-
-      /* 섹션 공통 스타일 */
-      .section {
-        margin-bottom: 45px;
-      }
+      .section { margin-bottom: 45px; }
 
       .section-title {
         font-size: 1.25rem;
         font-weight: 700;
         color: var(--text-dark);
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         text-transform: uppercase;
         letter-spacing: 1px;
         display: flex;
@@ -99,80 +94,100 @@
       .section-title::after {
         content: "";
         flex: 1;
-        height: 1px;
-        background: #eee;
+        height: 2px;
+        background: var(--bg-gray);
         margin-left: 20px;
+        border-radius: 2px;
       }
 
-      /* 리스트 및 상세 내용 스타일 */
       .entry {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
       }
 
-      .entry-content {
-        flex: 1;
-      }
+      .entry-content { flex: 1; }
 
       .entry-date {
         font-size: 0.9rem;
         color: var(--text-light);
-        font-weight: 500;
+        font-weight: 600;
         margin-left: 20px;
         white-space: nowrap;
+        background: var(--bg-gray);
+        padding: 4px 10px;
+        border-radius: 20px;
       }
 
-      p {
-        margin: 5px 0;
+      p { margin: 5px 0; }
+      strong { color: var(--text-dark); font-weight: 600; }
+
+      ul.awards-list { list-style: none; padding-left: 0; }
+      ul.awards-list li { position: relative; padding-left: 25px; margin-bottom: 12px; }
+      ul.awards-list li::before {
+        content: "\f091";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: #f1c40f;
+        font-size: 0.9rem;
       }
 
-      ul {
-        padding-left: 18px;
-        margin: 10px 0;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      strong {
-        color: var(--text-dark);
-        font-weight: 600;
-      }
-
-      /* 스킬 태그 스타일 */
+      /* 스킬 & 자격증 리스트 스타일 */
       .skills-list {
         list-style: none;
         padding: 0;
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 12px;
+        margin: 10px 0;
       }
 
       .skills-list li {
-        background: #eef2f7;
-        padding: 6px 12px;
-        border-radius: 4px;
-        font-size: 0.9rem;
+        background: var(--white);
+        border: 1px solid var(--border-color);
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-size: 0.95rem;
         color: var(--text-dark);
         margin: 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        transition: all 0.2s ease;
       }
 
-      /* 반응형 조절 */
+      .skills-list li:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(52, 152, 219, 0.15);
+      }
+
+      .cert-list li {
+        background: #eef2f7;
+        border: none;
+        font-weight: 600;
+        color: var(--text-light);
+      }
+
       @media (max-width: 600px) {
-        .container { padding: 30px 20px; }
+        .container { padding: 40px 25px; }
         .entry { flex-direction: column; }
-        .entry-date { margin-left: 0; margin-top: 5px; }
-        h1 { font-size: 2rem; }
+        .entry-date { margin-left: 0; margin-top: 8px; }
+        .profile-header { flex-direction: column; text-align: center; }
+        .profile-img { margin-right: 0; margin-bottom: 15px; width: 100px; height: 100px; }
+        h1 { font-size: 2.2rem; }
       }
     </style>
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Geon Lee</h1>
+        <div class="profile-header">
+          <img src="img.jpg" alt="Geon Lee" class="profile-img">
+          <h1>Geon Lee</h1>
+        </div>
         <div class="contact-info">
           <p><i class="fas fa-envelope"></i>Email: <a href="mailto:dlrjs529@gmail.com">dlrjs529@gmail.com</a></p>
           <p><i class="fas fa-phone"></i>Phone: +82-10-2195-2846</p>
@@ -209,69 +224,31 @@
 
       <div class="section">
         <div class="section-title">Awards</div>
-        <ul>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>3rd Place</strong>, Coding Competition, Sejong University</span>
-              <span class="entry-date">Dec. 2025</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>3rd Place</strong>, IMSC Hackathon, University Of Southern California</span>
-              <span class="entry-date">Jul. 2025</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>Excellence Prize</strong>, Capstone Design Competition, Sejong University</span>
-              <span class="entry-date">Jun. 2025</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>Gold Prize</strong>, AI Challenge, Sejong University</span>
-              <span class="entry-date">Jun. 2025</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>Encouragement Prize</strong>, AI Challenge, Sejong University</span>
-              <span class="entry-date">Dec. 2024</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>Encouragement Prize</strong>, Software Academic Conference, Sejong University</span>
-              <span class="entry-date">Dec. 2024</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>4th Place</strong>, Coding Competition, Sejong University</span>
-              <span class="entry-date">Dec. 2024</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>Highest GPA Award</strong>, Sejong University</span>
-              <span class="entry-date">Feb. 2023</span>
-            </div>
-          </div>
-          <div class="entry" style="display: list-item; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between;">
-              <span><strong>Excellence Prize</strong>, Coding Competition, Sejong University</span>
-              <span class="entry-date">Sep. 2022</span>
-            </div>
-          </div>
+        <ul class="awards-list">
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>3rd Place</strong>, Coding Competition, Sejong University</div><div class="entry-date">Dec. 2025</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>3rd Place</strong>, IMSC Hackathon, University Of Southern California</div><div class="entry-date">Jul. 2025</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>Excellence Prize</strong>, Capstone Design Competition, Sejong University</div><div class="entry-date">Jun. 2025</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>Gold Prize</strong>, AI Challenge, Sejong University</div><div class="entry-date">Jun. 2025</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>Encouragement Prize</strong>, AI Challenge, Sejong University</div><div class="entry-date">Dec. 2024</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>Encouragement Prize</strong>, Software Academic Conference, Sejong University</div><div class="entry-date">Dec. 2024</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>4th Place</strong>, Coding Competition, Sejong University</div><div class="entry-date">Dec. 2024</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>Highest GPA Award</strong>, Sejong University</div><div class="entry-date">Feb. 2023</div></div></li>
+          <li><div class="entry" style="margin-bottom: 0;"><div class="entry-content"><strong>Excellence Prize</strong>, Coding Competition, Sejong University</div><div class="entry-date">Sep. 2022</div></div></li>
         </ul>
       </div>
-      
+
       <div class="section">
         <div class="section-title">Skills</div>
+        <p style="margin-bottom: 10px;"><strong>Languages</strong></p>
         <ul class="skills-list">
-          <li><strong>Languages:</strong> Python, C, C++</li>
-          <li><strong>Framework:</strong> PyTorch, Tensorflow</li>
+          <li>Python</li>
+          <li>C</li>
+          <li>C++</li>
+        </ul>
+        <p style="margin: 20px 0 10px 0;"><strong>Frameworks</strong></p>
+        <ul class="skills-list">
+          <li>PyTorch</li>
+          <li>Tensorflow</li>
         </ul>
       </div>
       
@@ -284,4 +261,4 @@
       </div>
     </div>
   </body>
-</html> 
+</html>
